@@ -1,7 +1,9 @@
 exports.handler = async (event) => {
-  const subject = event.queryStringParameters.name || 'World';
+  const v = event.queryStringParameters.vote;
+
   return {
     statusCode: 200,
-    body: `Hello ${subject}!`,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    body: JSON.stringify(v),
   };
 };
