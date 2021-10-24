@@ -1,9 +1,7 @@
 let votesArr = [0, 0, 0, 0];
-
-exports.handler = async (event) => {
-  const v = event.queryStringParameters.vote;
-  console.log('🚀 ~ file: hello.js ~ line 5 ~ exports.handler= ~ v ', v);
-  switch (v) {
+// https://optimistic-kare-843d65.netlify.app/.netlify/functions/hello?vote=C
+function countVotes(vote) {
+  switch (vote) {
     // All cases are for the votesArr
     case 'A':
       votesArr[0]++;
@@ -23,6 +21,11 @@ exports.handler = async (event) => {
     default:
       break;
   }
+}
+
+exports.handler = async (event) => {
+  const v = event.queryStringParameters.vote;
+  countVotes(v);
 
   return {
     statusCode: 200,
