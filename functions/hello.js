@@ -2,6 +2,7 @@ let votesArr = [0, 0, 0, 0];
 
 exports.handler = async (event) => {
   const v = event.queryStringParameters.vote;
+  console.log('🚀 ~ file: hello.js ~ line 5 ~ exports.handler= ~ v ', v);
   switch (v) {
     // All cases are for the votesArr
     case 'A':
