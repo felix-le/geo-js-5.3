@@ -1,4 +1,3 @@
-//https://optimistic-kare-843d65.netlify.app/.netlify/functions/hello
 const options = {
   scales: {
     yAxes: [
@@ -34,3 +33,17 @@ function drawchart(arrData) {
   chart.data.datasets[0].data = arrData;
   chart.update();
 }
+
+async function voting(e) {
+  if (!e.target.matches('button')) return;
+
+  const vote = e.target.id;
+
+  const res = await fetch(
+    `https://optimistic-kare-843d65.netlify.app/.netlify/functions/hello?${vote}`
+  );
+  const data = await res.json();
+  drawchart(data);
+}
+const voteArea = document.querySelector('#voteArea');
+voteArea.addEventListener('click', voting);

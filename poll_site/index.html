@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #voteArea {
+        width: 100%;
+        text-align: center;
+      }
+      #chartArea {
+        width: 800px;
+        height: 600px;
+      }
+    </style>
   </head>
   <body>
     <canvas id="myChart"></canvas>
+    <div id="voteArea">
+      <button id="A">A</button><button id="B">B</button><button id="C">C</button
+      ><button id="D">D</button>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="index.js" type="module"></script>
   </body>
