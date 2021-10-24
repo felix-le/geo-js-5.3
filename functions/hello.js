@@ -1,7 +1,8 @@
 let votesArr = [0, 0, 0, 0];
 
-function countVotes(vote) {
-  switch (vote) {
+exports.handler = async (event) => {
+  const v = event.queryStringParameters.vote;
+  switch (v) {
     // All cases are for the votesArr
     case 'A':
       votesArr[0]++;
@@ -21,11 +22,6 @@ function countVotes(vote) {
     default:
       break;
   }
-}
-
-exports.handler = async (event) => {
-  const v = event.queryStringParameters.vote;
-  countVotes(v);
 
   return {
     statusCode: 200,
